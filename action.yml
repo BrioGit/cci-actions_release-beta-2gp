@@ -14,13 +14,18 @@ inputs:
     description: 'Name of the scratch org config to use'
     required: true
     default: release
+  py-version:
+    description: 'Python version to use'
+    required: false
 runs:
   using: "composite"
   steps:
-      - uses: nimba-actions/run-flow-scratch@main
+      - uses: BrioGit/cci-actions_run-flow-scratch@main
         with:
           dev-hub-auth-url: '${{ inputs.dev-hub-auth-url }}'
           org-name: '${{ inputs.org-name }}'
           cumulusci-version: '${{ inputs.cumulusci-version }}'
           sfdx-version: '${{ inputs.sfdx-version }}'
           flow-name: release_2gp_beta
+          py-version: '${{ inputs.py-version }}'
+
